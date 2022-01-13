@@ -1,5 +1,24 @@
 extends layout 
 
 block content
-  h1= title 
-  p Welcome to #{title} homepage 
+  h1= "Events"
+   a(href="/events/create")
+    button(type="button") Add event
+  h3= `No. of Events in database: ${event_data.length}`
+  table 
+   thead  
+     tr
+      th Event
+      th City        
+      th Attending 
+   tbody 
+    each event in event_data
+      tr 
+        td= event.Event
+        td= event.City 
+        if event.Attending == 1
+          td= "Yes" 
+        else 
+          td= "No"
+        td: a(href=`/events/edit/${event.id}`): p="Edit"
+                

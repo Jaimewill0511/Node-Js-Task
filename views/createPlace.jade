@@ -1,0 +1,19 @@
+extends layout 
+
+block content
+  h1= title 
+  form(name="add-cars", method="post")
+    div.input
+        span.label Country Code
+        input(type="text", name="countryCode")
+    div.input
+        span.label Country
+        input(type="text", name="country")
+    div.input
+        span.label City 
+        input(type="text", name="city")
+    div.input
+        span.label Address 
+        input(type="text", name="address")
+    div.actions
+        input(type="submit", value="Submit")

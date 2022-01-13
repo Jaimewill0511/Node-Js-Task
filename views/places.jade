@@ -1,5 +1,22 @@
 extends layout 
 
 block content
-  h1= title 
-  p Welcome to #{title} homepage 
+  h1= "Places"
+   a(href="/places/create")
+    button(type="button") Add Place to database
+  h3= `No. of Places in database: ${place_data.length}`
+  table 
+   thead  
+     tr
+      th Country Code
+      th Country
+      th City        
+      th Address 
+   tbody 
+    each place in place_data
+      tr 
+        td= place.countryCode
+        td= place.Country 
+        td= place.City 
+        td= place.Address
+        td: a(href=`/places/edit/${place.id}`): p="Edit"

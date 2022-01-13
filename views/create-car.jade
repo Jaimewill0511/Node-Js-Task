@@ -1,0 +1,19 @@
+extends layout 
+
+block content
+  h1= title 
+  form(name="add-cars", method="post")
+    div.input
+        span.label Vin
+        input(type="text", name="vin")
+    div.input
+        span.label Make
+        input(type="text", name="make")
+    div.input
+        span.label Model 
+        input(type="text", name="model")
+    div.input
+        span.label Year 
+        input(type="text", name="year")
+    div.actions
+        input(type="submit", value="Add")

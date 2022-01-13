@@ -2,4 +2,68 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to your database #{title} 
+   
+   hr
+ 
+  h2= "Cars database"                              
+  table 
+   thead  
+     tr
+      th Vin
+      th Make
+      th Model       
+      th Year 
+   tbody 
+    each car in carDb 
+      if car.id <= 5
+        tr 
+          td= car.Vin
+          td= car.Model 
+          td= car.Make
+          td= car.Year
+          td: a(href=`/cars/edit/${car.id}`): p="Edit"
+  a(href=`/cars`): p="Show More"
+                                      //- Events
+   hr
+  h2= "Events database"
+  table 
+   thead  
+     tr
+      th Event
+      th City        
+      th Attending 
+   tbody 
+    each event in eventDb
+      if event.id <= 5
+        tr 
+          td= event.Event
+          td= event.City 
+          if event.Attending == 1
+            td= "Yes" 
+          else 
+            td= "No"
+          td: a(href=`/events/edit/${event.id}`): p="Edit"
+  a(href=`/events`): p="Show More"
+                                  //- Places
+    hr
+  h2= "Places database"
+  table 
+   thead  
+     tr
+      th Country Code
+      th Country
+      th City        
+      th Address 
+   tbody 
+    each place in placeDb
+      if place.id <= 5
+        tr 
+          td= place.countryCode
+          td= place.Country 
+          td= place.City 
+          td= place.Address
+          td: a(href=`/places/edit/${place.id}`): p="Edit"
+  a(href=`/places`): p="Show More"
+
+

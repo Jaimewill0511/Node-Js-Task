@@ -1,5 +1,24 @@
 extends layout 
 
 block content
-  h1= title 
-  p Welcome to #{title} homepage 
+  h1= "Cars"
+   a(href="/cars/create")
+    button(type="button") Add car to database
+  h3= `No. of cars in database: ${car_data.length}`
+  table 
+   thead  
+     tr
+      th Vin
+      th Make
+      th Model       
+      th Year 
+   tbody 
+    each car in car_data
+      tr 
+        td= car.Vin
+        td= car.Model 
+        td= car.Make
+        td= car.Year
+        td: a(href=`/cars/edit/${car.id}`): p="Edit"
+          
+         

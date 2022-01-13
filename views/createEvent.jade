@@ -1,0 +1,21 @@
+extends layout 
+
+block content
+  h1= title 
+  form(name="add-events", method="post")
+    div.input
+        span.label Event
+        input(type="text", name="event")
+    div.input
+        span.label City 
+        input(type="text", name="city")
+    div
+        span.label Attending
+        select(name="attending")
+            span.label Attending
+            - repeat = ["-- Please select an option --", 'Yes', "No"]
+            each item in repeat
+                option #{item}
+        
+    div.actions
+        input(type="submit", value="Submit")
